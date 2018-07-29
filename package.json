@@ -4,15 +4,16 @@
   "private": true,
   "dependencies": {
     "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
   },
   "lint-staged": {
-     "src/**/*.{js,jsx,json,css}": [
-       "prettier --single-quote --write",
-       "git add"
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
     ]
-   },
+  },
   "scripts": {
     "precommit": "lint-staged",
     "start": "react-scripts start",
