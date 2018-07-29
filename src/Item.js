@@ -39,6 +39,7 @@ class Item extends Component {
             <span
               className="input-group-text"
               id="basic-addon2"
+              hidden={this.props.isClearShow}
               onClick={this.deleteItem}
             >
               X
@@ -62,6 +63,7 @@ class Item extends Component {
               className="input-group-text"
               id="basic-addon2"
               onClick={this.deleteItem}
+              hidden={this.props.isClearShow}
             >
               X
             </span>

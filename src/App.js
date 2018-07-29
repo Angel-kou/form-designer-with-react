@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       choose: false,
       list: [],
-      count: 0
+      count: 0,
+      isPreview: false
     };
   }
 
@@ -34,26 +35,33 @@ class App extends Component {
     });
   };
 
+  changeState = () => {
+    this.setState({
+      isPreview: !this.state.isPreview
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h3>表单设计器</h3>
+
+        <input
+          type="button"
+          className="btn btn-primary"
+          id="preview"
+          ref="stateBtn"
+          value={this.state.isPreview ? 'Edit' : 'Preview'}
+          onClick={this.changeState}
+        />
 
         <button
           type="button"
           className="btn btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
-          id="preview"
-        >
-          preview
-        </button>
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-toggle="modal"
-          data-target="#exampleModal"
           id="add"
+          hidden={this.state.isPreview}
         >
           +
         </button>
@@ -65,6 +73,7 @@ class App extends Component {
                 data={item}
                 choosed={this.state.choose}
                 delete={this.deleteFieldType}
+                isClearShow={this.state.isPreview}
               />
             ))}
           </div>
